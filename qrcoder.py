@@ -20,13 +20,13 @@ QR_FILE_FORMAT = '{code}.jpg'
 def create_parser():
     parser = ArgumentParser(description='Generate qrcode images')
     parser.add_argument('--type', choices=['sample', 'normal'], required=True)
-    parser.add_argument('--count', type=int, required=True, 
+    parser.add_argument('--count', type=int, required=True,
         help='Generate this many identifiers.')
-    parser.add_argument('--start', type=int, required=True, 
+    parser.add_argument('--start', type=int, required=True,
         help='Start at this id.')
-    parser.add_argument('--dir', required=True, 
+    parser.add_argument('--dir', required=True,
         help='Place images in this directory.')
-    parser.add_argument('--debug', action='store_true', 
+    parser.add_argument('--debug', action='store_true',
         help='Display debugging messages.')
     return parser
 
