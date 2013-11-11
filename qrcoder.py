@@ -6,6 +6,7 @@ from os.path import (exists as path_exists, join as join_paths,
     isdir as path_is_dir)
 
 from qrcode import QRCode, constants
+from qrcode.exceptions import DataOverflowError
 
 
 log = logging.getLogger('qrcoder')
@@ -36,16 +37,26 @@ def script_error(msg):
     sys.exit(-1)
 
 
+errors = {
+    'overflow': """There was too much data for code {code}.
+Therefore a larger qr code will be created."""
+}
+
+
 def generate_qr_codes(package_type, starting_code, count, output_dir):
     for code in range(starting_code, starting_code + count):
         package_url = PACKAGE_URL.format(code=code, type=package_type)
+        expected_version = 3
         qr = QRCode(
-            version=1,
+            version=expected_version,
             error_correction=constants.ERROR_CORRECT_L,
-            box_size=2,
+            box_size=3,
             border=4,
         )
         qr.add_data(package_url)
+        qr.make(fit=True)
+        if qr.version != expected_version:
+            log.warn(errors['overflow'].format(code=code))
         img = qr.make_image()
         img_path = join_paths(output_dir, QR_FILE_FORMAT.format(code=code))
         img.save(img_path, 'JPEG')
