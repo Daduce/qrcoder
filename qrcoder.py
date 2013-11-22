@@ -19,13 +19,13 @@ PACKAGE_URL = 'http://www.seed.io/packages/{code}?type={type}'
 QR_FILE_FORMAT = '{code}.png'
 
 
-FONT = ImageFont.truetype("/usr/share/fonts/corefonts/verdana.ttf", 12)
+FONT = ImageFont.truetype("/usr/share/fonts/corefonts/cour.ttf", 12)
 
 
 # This is a completely made up estimate of the height of text
 # rendered with the prior `FONT` variable's font.
 # Pillow's text size method does not return a correct height.
-FONT_HEIGHT = 18
+FONT_HEIGHT = 14
 
 
 def create_parser():
