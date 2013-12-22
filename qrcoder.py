@@ -13,13 +13,13 @@ from qrcode.exceptions import DataOverflowError
 log = logging.getLogger('qrcoder')
 
 
-PACKAGE_URL = 'http://www.seed.io/packages/{code}?type={type}'
+PACKAGE_URL = 'http://app.seedtabs.com/packages/{code}?type={type}'
 
 
 QR_FILE_FORMAT = '{code}.png'
 
 
-FONT = ImageFont.truetype("/usr/share/fonts/corefonts/verdana.ttf", 12)
+FONT = ImageFont.truetype("/usr/share/fonts/truetype/msttcorefonts/verdana.ttf", 12)
 
 
 # This is a completely made up estimate of the height of text
