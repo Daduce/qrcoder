@@ -20,9 +20,8 @@ QR_FILE_FORMAT = '{code}.png'
 
 
 
-FONT = ImageFont.truetype("/usr/share/fonts/truetype/msttcorefonts/verdana.ttf", 12)
-
-#FONT = ImageFont.truetype("/usr/share/fonts/corefonts/cour.ttf", 12)
+FONT = ImageFont.truetype("/usr/share/fonts/truetype/msttcorefonts/verdana.ttf", 12) #Will's Computer
+#FONT = ImageFont.truetype("/usr/share/fonts/corefonts/cour.ttf", 12) #Ian's Computer
 
 
 
